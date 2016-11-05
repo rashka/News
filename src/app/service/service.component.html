@@ -10,7 +10,29 @@
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, explicabo dolores ipsam aliquam inventore corrupti eveniet
 				quisquam quod totam laudantium repudiandae obcaecati ea consectetur debitis velit facere nisi expedita vel?</p>
 		</div>
-	</div>
 
+
+	</div>
+	<div class="row">
+		<div class="panel panel-default">
+
+			<div class="panel-heading">Users</div>
+			<div class="panel-body">
+				<ul class="list">
+					<li *ngFor="let nws of news" >
+						<label>{{nws.id}}</label>
+						<label>{{nws.firstName}}</label>
+						<label>{{nws.lastName}}</label>
+						<label>{{nws.username}}</label>
+					</li>
+				</ul>
+			</div>
+			<div class="panel-footer">
+				<span> This is panel footer</span>
+
+			</div>
+		</div>
+
+	</div>
 
 </div>

@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ServiceComponent } from './service/service.component';
+import {NewsService} from './news.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import { ServiceComponent } from './service/service.component';
       { path: 'service', component: ServiceComponent }
     ])
   ],
-  providers: [],
+  providers: [NewsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
