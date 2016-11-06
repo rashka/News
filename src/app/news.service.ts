@@ -31,6 +31,7 @@ export class NewsService {
 
     //  }
     getNews(){
+      console.log("getting news ...")
      return this.news;
 
     }
