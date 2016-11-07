@@ -18,12 +18,20 @@
 
 			<div class="panel-heading">Users</div>
 			<div class="panel-body">
-				<ul class="list">
-					<li *ngFor="let post of posts" >
-						<h3>{{post.title}}</h3>
-						<p>{{post.body}}</p>
-					</li>
-				</ul>
+				<table class="table">
+					<tr class="">
+						<th class="">Id</th>
+						<th class="">First Name</th>
+						<th class="">Last Name</th>
+						<th class="">Username</th>
+					</tr>
+					<tr class="" *ngFor="let user of users">
+						<td class="">{{user.id}} </td>
+						<td class=""> {{user.firstName}}</td>
+						<td class=""> {{user.lastName}} </td>
+						<td class="">{{user.username}} </td>
+					</tr>
+				</table>
 			</div>
 			<div class="panel-footer">
 				<span> This is panel footer</span>

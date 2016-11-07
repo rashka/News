@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NewsService} from '../news.service'; 
 import {News} from '../News';
 import {Post} from '../post';
+import {User} from '../user';
 
 @Component({
   selector: 'app-service',
@@ -11,12 +12,13 @@ import {Post} from '../post';
 })
 export class ServiceComponent  {
     private posts:Post[]; 
-  //  private title;
+    private users:User[];
    // private body;
 
   constructor(private newsService: NewsService) {
-     this.newsService.getPosts().subscribe(posts =>{
-       this.posts = posts;
+     this.newsService.getUsers().subscribe(users =>{
+     //  this.posts = posts;
+     this.users = users;
      });
    }
 

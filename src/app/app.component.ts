@@ -3,6 +3,7 @@ import {HttpModule} from '@angular/http';
 import {NewsService} from './news.service'; 
 import {News} from './News';
 import {Post} from './post';
+import {User} from './user';
 
 @Component({
   selector: 'app-root',

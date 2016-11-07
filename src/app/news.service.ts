@@ -6,11 +6,12 @@ import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {Post} from './post';
+import {User} from './user';
 
 @Injectable()
 export class NewsService {
-  //public newsResourseUrl = 'http://localhost:8080/TimeManager/resources/users';
-  public url = "https://jsonplaceholder.typicode.com/posts";
+  public url = "http://localhost:8080/TimeManager/resources/users";
+  //public url = "https://jsonplaceholder.typicode.com/posts";
   // public news;
 
   constructor(private http: Http) { 
@@ -31,14 +32,13 @@ export class NewsService {
     //                      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 
     //  }
-    getPosts() : Observable<Post[]>{
+    getUsers() : Observable<User[]>{
     //   console.log("getting news ...")
     //  return this.news;
       return this.http.get(this.url)
-          .map(res => res.json());
+          .map(res => res.json())
+          .catch((error:any) => Observable.throw(error.json().error || 'Server error - may be not connecting to rest api'));
     }
 
-    addNews(){
-      // console.log("adding News ...")
-    }
+    
 }
