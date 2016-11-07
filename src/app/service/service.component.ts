@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NewsService} from '../news.service'; 
 import {News} from '../News';
+import {Post} from '../post';
 
 @Component({
   selector: 'app-service',
@@ -8,15 +9,17 @@ import {News} from '../News';
   styleUrls: ['./service.component.css'],
   providers: [NewsService]
 })
-export class ServiceComponent implements OnInit {
-    public news; 
+export class ServiceComponent  {
+    private posts:Post[]; 
+  //  private title;
+   // private body;
+
   constructor(private newsService: NewsService) {
-     this.news = newsService.getNews();
+     this.newsService.getPosts().subscribe(posts =>{
+       this.posts = posts;
+     });
    }
 
-  ngOnInit() {
-    console.info("On init excuted in ServiceComponent");
-   
-  }
+  
   
 }

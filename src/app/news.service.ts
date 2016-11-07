@@ -1,23 +1,24 @@
 import { Injectable } from '@angular/core';
-import {Http, Response, RequestOptions} from '@angular/http';
-
-
-import {News} from './News';
+import {Http, HttpModule, Response, RequestOptions} from '@angular/http';
+import {News} from './news';
 import {Observable} from 'rxjs/Rx';
+import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import {Post} from './post';
 
 @Injectable()
 export class NewsService {
-  public newsResourseUrl = 'http://localhost:8080/TimeManager/resources/users';
-  public news;
+  //public newsResourseUrl = 'http://localhost:8080/TimeManager/resources/users';
+  public url = "https://jsonplaceholder.typicode.com/posts";
+  // public news;
 
   constructor(private http: Http) { 
-    this.news = [
-      { id:'1', firstName:'Abdul', lastName:'salad', username:'asala', password:'secret'},
-      { id:'2', firstName:'Abdul2', lastName:'salad2', username:'asala2', password:'secret2'},
-      { id:'3', firstName:'Abdu3', lastName:'salad3', username:'asala3', password:'secret3'},
-    ];
+    // this.news = [
+    //   { id:'1', firstName:'Abdul', lastName:'salad', username:'asala', password:'secret'},
+    //   { id:'2', firstName:'Abdul2', lastName:'salad2', username:'asala2', password:'secret2'},
+    //   { id:'3', firstName:'Abdu3', lastName:'salad3', username:'asala3', password:'secret3'},
+    // ];
   }
   
     // getNews() : Observable<News[]> {
@@ -30,13 +31,14 @@ export class NewsService {
     //                      .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 
     //  }
-    getNews(){
-      console.log("getting news ...")
-     return this.news;
-
+    getPosts() : Observable<Post[]>{
+    //   console.log("getting news ...")
+    //  return this.news;
+      return this.http.get(this.url)
+          .map(res => res.json());
     }
 
     addNews(){
-      console.log("adding News ...")
+      // console.log("adding News ...")
     }
 }
